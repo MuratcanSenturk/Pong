@@ -1,0 +1,43 @@
+#homePage{
+    display: block;
+}
+#gamePage{
+    display: none;
+}
+#mainMenu{
+    text-align: center;
+    border: 1.2px solid black;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    margin: 10%;
+    transition-duration: 400ms;
+}
+#mainMenu:hover{
+    border: 1.2px dashed black;
+    background-color: rgba(25, 68, 133, 0.216);
+    padding: 30px;
+}
+p{
+    font-size: 27px;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+p:hover{
+    font-size: 30px;
+    border-bottom: 1px black solid;
+}
+#myCanvas{
+    border: 2px solid black;
+}
+#pong{
+    cursor: pointer;
+    font-size: 39px;
+    font-weight: bold;
+}
+#player1Score, #player2Score{
+    font-size: 23px;
+    font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+    margin: 30px;
+}
