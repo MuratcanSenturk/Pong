@@ -3,14 +3,12 @@
     var draw = canvas.getContext("2d");
     document.addEventListener("keydown", this.onKeyPress.bind());
 
-    var cnvHeight = document.getElementById("myCanvas").height;
-    var cnvWidth = document.getElementById("myCanvas").width;
     var player1X =  50;
     var player1Y = 200;
     var cpuX = 750;
     var cpuY = 200;
-    var objX = cnvWidth/2;
-    var objY = cnvHeight/2;
+    var objX = canvas.width/2;
+    var objY = canvas.height/2;
     var velocityX;
     var velocityY;
     var player1Scr = 0;
@@ -48,12 +46,12 @@
     }
     function clear(){
         draw.fillStyle = "white";
-        draw.fillRect(0, 0, cnvWidth, cnvHeight);
+        draw.fillRect(0, 0, canvas.width, canvas.height);
     }
     function ai(){
         if(objY - 50 < cpuY && cpuY != 0){
             cpuY -= 5;
-        }else if(objY - 50 > cpuY && cpuY != cnvHeight - 100){
+        }else if(objY - 50 > cpuY && cpuY != canvas.height - 100){
             cpuY += 5;
         }
     }
@@ -81,16 +79,16 @@
         }
         //Player1 Scored
         if(objX == 810){
-            objX = cnvWidth/2;
-            objY = cnvHeight/2;
+            objX = canvas.width/2;
+            objY = canvas.height/2;
             velocityX = 1;
             velocityY = 1;
             player1Scr++;
         }
         //Computer Scored
         if(objX == -10){
-            objX = cnvWidth/2;
-            objY = cnvHeight/2;
+            objX = canvas.width/2;
+            objY = canvas.height/2;
             player2Scr++;
         }
         
@@ -101,8 +99,8 @@
         if(e.keyCode == 13){
             velocityX = 1;
             velocityY = 1;
-            objX = cnvWidth/2;
-            objY = cnvHeight/2;
+            objX = canvas.width/2;
+            objY = canvas.height/2;
             player1X =  50;
             player1Y = 200;
             cpuX = 750;
@@ -114,13 +112,13 @@
         if(e.keyCode == 38 && player1Y != 0){
             player1Y -= 20;
         }
-        if(e.keyCode == 40 && player1Y != cnvHeight - 100){
+        if(e.keyCode == 40 && player1Y != canvas.height - 100){
             player1Y += 20;
         }
         /*if(e.keyCode == 79 && cpuY != 0){
             cpuY -= 20;
         }
-        if(e.keyCode == 76 && cpuY != cnvHeight - 100){
+        if(e.keyCode == 76 && cpuY != canvas.height - 100){
             cpuY += 20;
         }*/
     }
