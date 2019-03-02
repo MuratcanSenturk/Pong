@@ -3,12 +3,14 @@
     var draw = canvas.getContext("2d");
     document.addEventListener("keydown", this.onKeyPress.bind());
 
+    var cnvHeight = document.getElementById("myCanvas").height;
+    var cnvWidth = document.getElementById("myCanvas").width;
     var player1X =  50;
     var player1Y = 200;
     var cpuX = 750;
     var cpuY = 200;
-    var objX = canvas.width/2;
-    var objY = canvas.height/2;
+    var objX = cnvWidth/2;
+    var objY = cnvHeight/2;
     var velocityX;
     var velocityY;
     var player1Scr = 0;
@@ -21,13 +23,13 @@
     function start(difficulty){
         switch(difficulty){
             case "easy":
-                progSpeed = 30;
+                progSpeed = 28;
                 break;
             case "medium":
                 progSpeed = 15;
                 break;
             case "hard":
-                progSpeed = 5;
+                progSpeed = 7;
                 break;
         }
         document.getElementById("homePage").style.display = "none";
@@ -35,7 +37,7 @@
         velocityX = 0;
         velocityY = 0;
         game();
-        interval1 = setInterval(game, 5);
+        interval1 = setInterval(game, 1);
         document.getElementById("enter").innerHTML = "Press Enter to Start"
     }
     function goHome(){
@@ -46,12 +48,12 @@
     }
     function clear(){
         draw.fillStyle = "white";
-        draw.fillRect(0, 0, canvas.width, canvas.height);
+        draw.fillRect(0, 0, cnvWidth, cnvHeight);
     }
     function ai(){
         if(objY - 50 < cpuY && cpuY != 0){
             cpuY -= 5;
-        }else if(objY - 50 > cpuY && cpuY != canvas.height - 100){
+        }else if(objY - 50 > cpuY && cpuY != cnvHeight - 100){
             cpuY += 5;
         }
     }
@@ -60,8 +62,8 @@
         draw.beginPath();
         draw.fillStyle = "black";
         draw.fillRect(objX, objY, 10, 10);
-        draw.fillRect(player1X, player1Y, 15, 100);
-        draw.fillRect(cpuX, cpuY, 15, 100);
+        draw.fillRect(player1X, player1Y, 10, 60);
+        draw.fillRect(cpuX, cpuY, 10, 60);
         draw.closePath();
         objX += velocityX;
         objY += velocityY;
@@ -71,24 +73,24 @@
         if(objY == 0){
             velocityY *= -1;
         }
-        if(objX + 10 == cpuX && objY <= cpuY+100 && objY >= cpuY){
+        if(objX + 10 == cpuX && objY <= cpuY+60 && objY >= cpuY){
             velocityX *= -1;
         }
-        if (objX == player1X + 15 && objY <= player1Y+100 && objY >= player1Y) {
+        if (objX == player1X + 15 && objY <= player1Y+60 && objY >= player1Y) {
             velocityX *= -1;
         }
         //Player1 Scored
         if(objX == 810){
-            objX = canvas.width/2;
-            objY = canvas.height/2;
+            objX = cnvWidth/2;
+            objY = cnvHeight/2;
             velocityX = 1;
             velocityY = 1;
             player1Scr++;
         }
         //Computer Scored
         if(objX == -10){
-            objX = canvas.width/2;
-            objY = canvas.height/2;
+            objX = cnvWidth/2;
+            objY = cnvHeight/2;
             player2Scr++;
         }
         
@@ -99,8 +101,8 @@
         if(e.keyCode == 13){
             velocityX = 1;
             velocityY = 1;
-            objX = canvas.width/2;
-            objY = canvas.height/2;
+            objX = cnvWidth/2;
+            objY = cnvHeight/2;
             player1X =  50;
             player1Y = 200;
             cpuX = 750;
@@ -112,15 +114,9 @@
         if(e.keyCode == 38 && player1Y != 0){
             player1Y -= 20;
         }
-        if(e.keyCode == 40 && player1Y != canvas.height - 100){
+        if(e.keyCode == 40 && player1Y != cnvHeight - 100){
             player1Y += 20;
         }
-        /*if(e.keyCode == 79 && cpuY != 0){
-            cpuY -= 20;
-        }
-        if(e.keyCode == 76 && cpuY != canvas.height - 100){
-            cpuY += 20;
-        }*/
     }
     
     
