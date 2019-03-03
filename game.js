@@ -20,13 +20,13 @@
     function start(difficulty){
         switch(difficulty){
             case "easy":
-                progSpeed = 28;
+                progSpeed = 35;
                 break;
             case "medium":
-                progSpeed = 15;
+                progSpeed = 23;
                 break;
             case "hard":
-                progSpeed = 7;
+                progSpeed = 12;
                 break;
         }
         document.getElementById("homePage").style.display = "none";
