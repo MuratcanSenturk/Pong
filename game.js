@@ -20,10 +20,10 @@
     function start(difficulty){
         switch(difficulty){
             case "easy":
-                progSpeed = 35;
+                progSpeed = 32;
                 break;
             case "medium":
-                progSpeed = 23;
+                progSpeed = 21;
                 break;
             case "hard":
                 progSpeed = 12;
