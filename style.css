@@ -1,8 +1,24 @@
 #homePage{
     display: block;
 }
-#gamePage{
-    display: none;
+#welcome{
+    font-size: 170%;
+    margin: 0 auto;
+}
+#gamePage{ display: none; }
+
+#enterMobile{ display: none; }
+
+#mobileButtons{ display: none; }
+
+#mobileLeft, #mobileRight{
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    font-size: 29px;
+    font-weight: bold;
 }
 #mainMenu{
     text-align: center;
@@ -40,4 +56,34 @@ p:hover{
     font-size: 23px;
     font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
     margin: 30px;
+}
+@media screen and (max-width: 900px){
+    header{
+        margin: 0 auto;
+        display: inline-block;
+    }
+    #myCanvas{
+        border: 2px solid black;
+        height: 250px;
+        width: 400px;
+        transform-origin: top left;
+        transform: rotate(-90deg) translate(-100%);
+        margin-left: 15%;
+        margin-right: 15%;
+        
+    }
+    #mobileButtons{
+        display: block;
+        bottom: 2%;
+        position: absolute;
+        left: 20%;
+    }
+    #enterDesktop{ display: none; }
+    #enterMobile{ 
+        display: block;
+        bottom: 17%;
+        left: 30%;
+        position: absolute;
+        font-size: 17px;
+    }
 }

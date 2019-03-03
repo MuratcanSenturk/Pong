@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>Pong</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" type="text/css" media="screen" href="style.css">
   
 </head>
 <body>
     <center id="homePage">
-      <h1>Welcome To Pong</h1>
+      <h1 id="welcome">Welcome To Pong</h1>
       <div id="mainMenu">
         <h2>Difficulty</h2>
         <div id="difficulties">
@@ -20,13 +20,19 @@
       </div>
     </center>
     <center id="gamePage">
-        <div>
-            <div id="pong" onclick="goHome()">Pong</div><br>
-            <span id="player1Score"></span> <span style="font-size: 30px">||</span>
-            <span id="player2Score"></span>
-    </div><br>
+        <header>
+            <div id="pong" onclick="goHome()">Pong</div>
+              <span id="player1Score"></span> <span style="font-size: 30px">||</span>
+              <span id="player2Score"></span>
+        </header>
     <canvas id="myCanvas" height="500" width="800"></canvas>
-    <h2 id="enter">Press Enter to Start</h2>
+    <h2 id="enterDesktop">Press Enter to Start</h2>
+    <h2 id="enterMobile" onclick="mobileStart()">Press Here to Start</h2>
+    <!--Mobile Controls-->
+    <div id="mobileButtons">
+      <button id="mobileLeft" onclick="mobileControl('left')"> < </button>
+      <button id="mobileRight" onclick="mobileControl('right')"> > </button>
+    </div>
     </center>
 
   <script src="game.js"></script>
