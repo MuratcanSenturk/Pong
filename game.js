@@ -23,7 +23,7 @@
                 progSpeed = 32;
                 break;
             case "medium":
-                progSpeed = 21;
+                progSpeed = 18;
                 break;
             case "hard":
                 progSpeed = 12;
